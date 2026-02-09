@@ -1,0 +1,159 @@
+/* App.css - Notes App Styles */
+
+/* ==================== TAILWIND BASE ==================== */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* ==================== CUSTOM ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ==================== NOTE CARD STYLES ==================== */
+.note-card {
+    transition: all 0.3s ease;
+}
+
+.note-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ==================== CUSTOM SCROLLBAR ==================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ==================== TAG BADGES ==================== */
+.tag-badge {
+    transition: all 0.2s ease;
+}
+
+.tag-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* ==================== LINE CLAMP ==================== */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==================== MODAL OVERLAY ==================== */
+.modal-overlay {
+    backdrop-filter: blur(4px);
+}
+
+/* ==================== GRADIENT BACKGROUNDS ==================== */
+.bg-gradient-indigo-purple {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-gradient-soft {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* ==================== BUTTON HOVER EFFECTS ==================== */
+.btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-semibold;
+    @apply hover:shadow-lg transform hover:scale-105 transition-all duration-200;
+}
+
+.btn-secondary {
+    @apply px-6 py-3 bg-white text-indigo-600 border-2 border-indigo-600 rounded-lg font-semibold;
+    @apply hover:bg-indigo-50 transition-all duration-200;
+}
+
+/* ==================== INPUT FOCUS STYLES ==================== */
+input:focus,
+textarea:focus,
+select:focus {
+    @apply outline-none ring-2 ring-indigo-200 border-indigo-500;
+}
+
+/* ==================== RESPONSIVE GRID ==================== */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==================== LOADING SPINNER ==================== */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* ==================== SMOOTH TRANSITIONS ==================== */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    .note-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+.focus-visible:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* ==================== DARK MODE SUPPORT (Optional) ==================== */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles here if needed */
+}
